@@ -25,15 +25,40 @@ repositories {
 }
 
 dependencies {
+	// Spring Boot 기본
+	implementation("org.springframework.boot:spring-boot-starter-web")
 	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
-	implementation("org.springframework.boot:spring-boot-starter-webmvc")
+
+    //웹소켓
+    implementation ("org.springframework.boot:spring-boot-starter-web")
+    implementation ("org.springframework.boot:spring-boot-starter-websocket")
+
+    //oauth2
+
+    implementation ("org.springframework.boot:spring-boot-starter-oauth2-client")
+
+    //시큐리티
+    implementation ("org.springframework.boot:spring-boot-starter-security")
+    testImplementation ("org.springframework.boot:spring-boot-starter-test")
+   	testImplementation ("org.springframework.security:spring-security-test")
+
+
+	// Lombok
 	compileOnly("org.projectlombok:lombok")
-	runtimeOnly("com.h2database:h2")
-	runtimeOnly("com.mysql:mysql-connector-j")
 	annotationProcessor("org.projectlombok:lombok")
-	testImplementation("org.springframework.boot:spring-boot-starter-data-jpa-test")
-	testImplementation("org.springframework.boot:spring-boot-starter-webmvc-test")
-	testRuntimeOnly("org.junit.platform:junit-platform-launcher")
+
+	// DB
+	runtimeOnly("com.mysql:mysql-connector-j")
+	runtimeOnly("com.h2database:h2")
+
+	// 테스트
+	testImplementation("org.springframework.boot:spring-boot-starter-test")
+
+	//jwt
+    	implementation ("io.jsonwebtoken:jjwt-api:0.12.3")
+    	implementation ("io.jsonwebtoken:jjwt-impl:0.12.3")
+    	implementation ("io.jsonwebtoken:jjwt-jackson:0.12.3")
+
 }
 
 tasks.withType<Test> {
